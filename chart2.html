@@ -1,46 +1,163 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF8">
-    <meta name="viewport" content="width=device-width" intial-scale="1.0">
-    <link rel="stylesheet" href="widget_style.css">
-<body>
-<!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container" style="height:100%;width:100%">
-  <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
-      <span class="blue-text">Track 7 all markets on TradingView</span>
-    
-    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-          {
-  "container_id": "technical-analysis-chart-demo",
-  "width": "100%",
-  "height": "100%",
-  "autosize": true,
-  "symbol": "AAPL",
-  "interval": "D",
-  "timezone": "exchange",
-  "theme": "dark",
-  "style": "1",
-  "withdateranges": true,
-  "hide_side_toolbar": false,
-  "allow_symbol_change": true,
-  "save_image": false,
-  "studies": [
-    "ROC@tv-basicstudies",
-    "StochasticRSI@tv-basicstudies",
-    "MASimple@tv-basicstudies"
-  ],
-  "show_popup_button": true,
-  "popup_width": "1000",
-  "popup_height": "650",
-  "support_host": "https://www.tradingview.com"
-}
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Stock Details</title>
+		<style>
+			:root {
+				--gap-size: 32px;
+				box-sizing: border-box;
+				font-family: -apple-system, BlinkMacSystemFont, 'Trebuchet MS', Roboto,
+					Ubuntu, sans-serif;
+				color: #000;
+			}
 
-    </script>
-    <script widget_script.js>
-    </script>
-<div>
+			* {
+				box-sizing: border-box;
+			}
 
-</body>
-</head>
+			body {
+				margin: 0;
+				padding: 0;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				background: #fff;
+			}
+
+			main {
+				display: grid;
+				width: 100%;
+				padding: 0 calc(var(--gap-size) * 0.5);
+				max-width: 960px;
+				grid-template-columns: 1fr 1fr;
+				grid-gap: var(--gap-size);
+			}
+
+			.span-full-grid,
+			#symbol-info,
+			#advanced-chart,
+			#company-profile,
+			#fundamental-data {
+				grid-column: span 2;
+			}
+
+			.span-one-column,
+			#technical-analysis,
+			#top-stories,
+			#powered-by-tv {
+				grid-column: span 1;
+			}
+
+			#ticker-tape {
+				width: 100%;
+				margin-bottom: var(--gap-size);
+			}
+
+			#advanced-chart {
+				height: 500px;
+			}
+
+			#company-profile {
+				height:390px;
+			}
+
+			#fundamental-data {
+				height: 490px;
+			}
+
+			#technical-analysis,
+			#top-stories {
+				height: 425px;
+			}
+
+			#powered-by-tv {
+				display: flex;
+				background: #f8f9fd;
+				border: solid 1px #e0e3eb;
+				text-align: justify;
+				flex-direction: column;
+				gap: 8px;
+				font-size: 14px;
+				padding: 16px;
+				border-radius: 6px;
+			}
+
+			#powered-by-tv a, #powered-by-tv a:visited {
+				color: #2962ff;
+			}
+
+			@media (max-width: 800px) {
+				main > section,
+				.span-full-grid,
+				#technical-analysis,
+				#top-stories,
+				#powered-by-tv {
+					grid-column: span 2;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<section id="symbol-info">
+				<!-- TradingView Widget BEGIN -->
+				<div class="tradingview-widget-container">
+					<div class="tradingview-widget-container__widget"></div>
+					<script
+						type="text/javascript"
+						src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js"
+						async>
+						{
+						"symbol": "NASDAQ:AAPL",
+						"width": "100%",
+						"locale": "en",
+						"colorTheme": "light",
+						"isTransparent": true
+						 }
+					</script>
+				</div>
+				<!-- TradingView Widget END -->
+			</section>
+			<section id="advanced-chart">
+				<!-- TradingView Widget BEGIN -->
+				<div
+					class="tradingview-widget-container"
+					style="height: 100%; width: 100%"
+				>
+					<div
+						id="tradingview_ae7da"
+						style="height: calc(100% - 32px); width: 100%"
+					></div>
+
+					<script
+						type="text/javascript" src="widget_script.js">
+                    </script>
+					<script
+						type="text/javascript"
+						src="https://s4.tradingview.com/tv.js"
+					></script>
+					<script type="text/javascript">
+						new TradingView.widget({
+							autosize: true,
+							// symbol: 'NASDAQ:AAPL',
+							symbol: symbol,
+							interval: 'D',
+							timezone: 'Etc/UTC',
+							theme: 'light',
+							style: '1',
+							locale: 'en',
+							enable_publishing: false,
+							hide_side_toolbar: false,
+							allow_symbol_change: true,
+							studies: ['STD;MACD'],
+							container_id: 'tradingview_ae7da',
+						});
+					</script>
+				</div>
+				<!-- TradingView Widget END -->
+			</section>
+		</main>
+	</body>
 </html>
