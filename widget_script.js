@@ -8,4 +8,5 @@ function readSymbolFromQueryString() {
 
 const symbol = readSymbolFromQueryString() || 'NASDAQ:AAPL';
 document.write("this is symbol:" + symbol);
+console.info(symbol);
 
