@@ -18,9 +18,30 @@
   "allow_symbol_change": true,
   "save_image": false,
   "studies": [
-    "ROC@tv-basicstudies",
-    "StochasticRSI@tv-basicstudies",
-    "MASimple@tv-basicstudies"
+    {
+        id: "MASimple@tv-basicstudies",
+        inputs: {
+            length: 10
+            },
+    },
+    {
+        id: "MASimple@tv-basicstudies",
+        inputs: {
+            length: 20
+            }
+    },
+    {
+        id: "MASimple@tv-basicstudies",
+        inputs: {
+            length: 50
+            }
+    },
+    {
+        id: "MASimple@tv-basicstudies",
+        inputs: {
+            length: 150,
+            }
+    },
   ],
   "show_popup_button": true,
   "popup_width": "1000",
