@@ -53,7 +53,8 @@ function initOnReady() {
    
 };
 
+const symbol = readSymbolFromQueryString() || 'NASDAQ:AAPL';
 window.addEventListener("DOMContentLoaded", initOnReady, false);
 
-const symbol = readSymbolFromQueryString() || 'NASDAQ:AAPL';
+
 
