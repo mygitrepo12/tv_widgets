@@ -49,11 +49,11 @@ function initOnReady() {
             }
     },
   ],
-     "studies_overrides": {
+  "studies_overrides": {
       "MASimple.plot.color.0": "rgba(255, 0, 0, 1)", // Red color for the first MASimple
       "MASimple.plot.color.1": "rgba(0, 128, 0, 1)", // Green color for the second MASimple
       // Add more overrides for additional instances
-    }
+    },
         container_id: 'tradingview_ae7da',
     }))
    
