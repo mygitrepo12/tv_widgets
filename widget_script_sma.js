@@ -6,6 +6,7 @@ function readSymbolFromQueryString() {
     return getQueryParam('ticker');
 }
 
+const symbol = readSymbolFromQueryString() || 'NASDAQ:AAPL';
 
 var widget
 function initOnReady() {
@@ -53,7 +54,6 @@ function initOnReady() {
    
 };
 
-const symbol = readSymbolFromQueryString() || 'NASDAQ:AAPL';
 window.addEventListener("DOMContentLoaded", initOnReady, false);
 
 
